@@ -1,0 +1,6 @@
+<h1 class=pad_5>USER INDEX</h1>
+<div>
+    <% @users.each do |user| %>
+            <div id="index_card"><%= link_to user.username.upcase, user_path(user), id: "index_list" %></div>
+    <% end %>
+</div>

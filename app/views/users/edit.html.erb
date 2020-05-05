@@ -1,0 +1,8 @@
+<div id="profile_card">
+    <h1 class="profile_label">EDIT PROFILE</h1>
+
+    <%= render "form" %>
+    <%= button_to "Delete", @user, method: :delete, id: "form_btn" %>
+    <%= link_to "Go Back", user_path(@user), id: "form_btn" %>
+
+</div>

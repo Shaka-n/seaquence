@@ -1,0 +1,31 @@
+<%= form_for @user do |f| %>
+<table width="400" cellpadding="0" cellspacing="0" borer="0">
+    <tr>
+        <td class="pad_5 profile_label">FIRST NAME: </td>
+        <td class="pad_5" width="60%"><%= f.text_field :first_name, placeholder: "First Name", id: "form_box" %></td>
+    </tr>
+    <tr>
+        <td class="pad_5 profile_label">LAST NAME: </td>
+        <td class="pad_5"><%= f.text_field :last_name, placeholder: "LAST NAME", id: "form_box" %></td>
+    </tr>
+    <tr>
+        <td class="pad_5 profile_label">TITLE: </td>
+        <td class="pad_5"><%= f.text_field :title, placeholder: "TITLE", id: "form_box" %></td>
+    </tr>
+    <tr>
+        <td class="pad_5 profile_label">COUNTRY: </td>
+        <td class="pad_5"><%= f.text_field :country, placeholder: "COUNTRY", id: "form_box" %></td>
+    </tr>
+    <tr>
+        <td class="pad_5 profile_label">BIO: </td>
+        <td class="pad_5"><%= f.text_field :bio, placeholder: "BIO", id: "form_box" %></td>
+    </tr>
+    <tr>
+        <td class="pad_5 profile_label">PROFILE IMAGE: </td>
+        <td class="pad_5"><%= f.text_field :profile_img, placeholder: "PROFILE IMAGE", id: "form_box" %></td>
+    </tr>
+</table>
+<br>
+    <%= f.submit "Submit", id: "form_btn" %>
+<% end %>
+

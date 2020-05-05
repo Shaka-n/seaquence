@@ -1,0 +1,14 @@
+<div id="profile_card">
+
+    <h1 class="profile_label"><%= @user.first_name.upcase %> <%= @user.last_name.upcase %></h1>
+    
+    <%= image_tag @user.profile_img %>
+    
+    <h3><span class="profile_label">TITLE:</span> <%= @user.title %></h3>
+    <h3><span class="profile_label">LOCATION:</span> <%= @user.country %></h3>
+    <h3><span class="profile_label">BIO:</span> <%= @user.bio %></h3>
+    <br><br>
+    <%= link_to "All Users", users_path, id: "form_btn" %>
+    <%= link_to "Edit Profile", edit_user_path, id: "form_btn" %>
+
+</div>
