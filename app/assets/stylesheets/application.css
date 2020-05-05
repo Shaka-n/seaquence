@@ -1,9 +1,10 @@
 body{
     background-color: #268bd2;
     background-image: url("https://images.unsplash.com/photo-1559825481-12a05cc00344?ixlib=rb-1.2.1&auto=format&fit=crop&w=1301&q=80");
-    background-position: center; 
+    background-position: top; 
     background-repeat: no-repeat; 
     background-size: cover;
+    position: relative;
     background-blend-mode: darken;
     color: white;
 }
