@@ -6,26 +6,58 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <%= stylesheet_link_tag 'user', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a id="nav_logo" class="navbar-brand" href="#">SEAQUENCE_LOGO</a>
+    <nav class="navbar">
+      <div class="nav_container">
+        <div id="logo">
+          <a href="/users"><%= image_tag("seaquence_logo.png", width: "340") %></a>
         </div>
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="/login">LOGIN</a></li>
-          <li><a href="/users">USERS</a></li>
-          <li><a href="/locations">LOCATIONS</a></li>
-          <li><a href="/reports">REPORTS</a></li>
-        </ul>
+        <div id="nav_menu">
+          <table align="center">
+            <tr>
+              <td align="center" class="h3_white">MENU:</td>
+            </tr>
+            <tr>
+              <td align="center"><a class="text_white" href="/locations">LOCATIONS</a></td>
+            </tr>
+            <tr>
+              <td align="center"><a class="text_white" href="/reports">REPORTS</a></td>
+            </tr>
+          </table>   
+        </div>
+        <div id="search_form">
+          <%= form_tag(users_path, method: :get) do %>
+            <table align="left">
+              <tr>
+                <td class="h2_white">Search User Index:</td>
+              </tr>
+              <tr>
+                <td width="250"><%= text_field_tag(:search, params[:search], id: "form_box") %></td>
+              </tr>
+              <tr>
+                <td><%= submit_tag("Search", id: "form_btn_nopad") %></td>
+              </tr>
+            </table>   
+          <% end %>  
+        </div>
+        <div id="search_index">        
+            <% if @users.respond_to?("each") %>
+            <% @users.each do |user| %>
+                <div id="index_card"><%= link_to user.username.upcase, user_path(user), id: "index_list" %></div>
+            <% end %>
+          <% end %>
+          <% if @err %>
+            <p class="text_white"><%= @err %></p>
+          <% end %>
+        </div>
       </div>
     </nav>
-      
-    <%= yield %>
+    <main>
+      <%= yield %>
+    </main> 
   </body>
 </html>
