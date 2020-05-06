@@ -10,22 +10,30 @@ class LocationsController < ApplicationController
 
     def new 
         @location = Location.new 
-        @location.markers.build(waterline_distance: "Marker")
-        @location.markers.build(waterline_distance: "Marker")
-        @location.markers.build(waterline_distance: "Marker")
-        @location.markers.build(waterline_distance: "Marker")
-        @location.markers.build(waterline_distance: "Marker")
-        @location.markers.build(waterline_distance: "Marker")
-        @location.markers.build(waterline_distance: "Marker")
-        @location.markers.build(waterline_distance: "Marker")
-        @location.markers.build(waterline_distance: "Marker")
-        @location.markers.build(waterline_distance: "Marker")
-
+        @location.markers.build(waterline_distance: 0)
+        @location.markers.build(waterline_distance: 0)
+        @location.markers.build(waterline_distance: 0)
+        @location.markers.build(waterline_distance: 0)
+        @location.markers.build(waterline_distance: 0)
+        @location.markers.build(waterline_distance: 0)
+        @location.markers.build(waterline_distance: 0)
+        @location.markers.build(waterline_distance: 0)
+        @location.markers.build(waterline_distance: 0)
+        @location.markers.build(waterline_distance: 0)
+        
     end 
-
+    
     def create 
         @location = Location.create(location_params)
 
+        markers_params[:markers_attributes].each do |m|
+
+             Marker.create(
+                 location_id: @location.id, 
+                 waterline_distance: m[1][:waterline_distance].to_i)
+                 #report_id: 
+        end 
+        
         redirect_to location_path(@location.id)
     end
 
@@ -43,17 +51,18 @@ class LocationsController < ApplicationController
         @location = Location.find(params[:id])
         @location.destroy
       
-    redirect_to location_path
+        redirect_to location_path
     end 
 
 
     private 
 
     def location_params 
-        params.require(:location).permit(:country,
-        :zipcode, 
-        :bio,
-        markers_attributes: [:waterline_distance])
+        params.require(:location).permit(:country, :zipcode, :bio)
     end
 
+    def markers_params
+        params.require(:location).permit(markers_attributes: :waterline_distance)
+    end
 end
+

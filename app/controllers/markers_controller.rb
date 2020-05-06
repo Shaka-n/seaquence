@@ -1,4 +1,4 @@
-class MarkerController < ApplicationController
+class MarkersController < ApplicationController
     def new
         @marker = Marker.new
     end
