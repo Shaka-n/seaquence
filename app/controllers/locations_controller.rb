@@ -21,13 +21,12 @@ class LocationsController < ApplicationController
         @location.markers.build(waterline_distance: "Marker")
         @location.markers.build(waterline_distance: "Marker")
 
-
     end 
 
     def create 
-        @locatio = Location.create(location_params)
+        @location = Location.create(location_params)
 
-        redirect_to location_path(@location[:location_id])
+        redirect_to location_path(@location.id)
     end
 
     def edit 
