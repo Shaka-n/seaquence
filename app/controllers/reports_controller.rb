@@ -20,20 +20,24 @@ class ReportsController < ApplicationController
         @report.markers.build(waterline_distance: 0)
         @report.markers.build(waterline_distance: 0)
         @report.markers.build(waterline_distance: 0)
+        @location = Location.find(params[:location_id])
     end 
 
     def create 
-        Report.create(report_params)
+        @report = Report.create(report_params)
+        # @location = Location.find(params[:location_id])
 
         markers_params[:markers_attributes].each do |m|
 
             Marker.create(
                 report_id: @report.id, 
-                waterline_distance: m[1][:waterline_distance].to_i)
+                waterline_distance: m[1][:waterline_distance].to_i,
+                location_id: params[:location_id])
+
                 # location_id: @location.id
         end
 
-        redirect_to report_path(@report.id)
+        redirect_to location_report_path(params[:location_id], @report.id)
     end
 
     def edit 
@@ -50,7 +54,7 @@ class ReportsController < ApplicationController
         @report = Report.find(params[:id])
         @report.destroy
       
-    redirect_to reports_path
+    redirect_to report_path
     end 
 
 

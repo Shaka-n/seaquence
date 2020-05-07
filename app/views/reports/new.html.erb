@@ -1,11 +1,12 @@
 <h1><ins>Create a new report</ins> </h1>
 
-<%= form_for @report do |f| %> 
+<%= form_for @report, url: location_reports_path(@location) do |f| %> 
     <%= f.label :title %>
     <%= f.text_field :title %> 
 
     <%= f.label :body %>
     <%= f.text_field :body %>
+
 <br>
 <br>
     <%= f.fields_for :markers do |marker| %>
@@ -13,6 +14,8 @@
         <%= marker.number_field :waterline_distance %><br/>
     <% end %>
 <br>
+<br>
+
     <%= f.submit %>
 
 <% end %>

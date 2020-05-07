@@ -20,18 +20,19 @@ class LocationsController < ApplicationController
         @location.markers.build(waterline_distance: 0)
         @location.markers.build(waterline_distance: 0)
         @location.markers.build(waterline_distance: 0)
-        
+
+
     end 
-    
+      
     def create 
-        Location.create(location_params)
+        @location = Location.create(location_params)
 
         markers_params[:markers_attributes].each do |m|
 
              Marker.create(
                  location_id: @location.id, 
                  waterline_distance: m[1][:waterline_distance].to_i)
-                #  report_id: @report.id
+                 #report_id: 
         end 
         
         redirect_to location_path(@location.id)

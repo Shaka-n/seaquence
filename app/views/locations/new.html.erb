@@ -1,7 +1,7 @@
 <%= form_for @location do |f| %> 
     <%= f.label :country %>
     <%= f.collection_select :country, Location.countries, :itself, :itself %>
-    
+
     <%= f.label :name %>
     <%= f.text_field :name %>
 
@@ -16,8 +16,7 @@
         <%= marker.label :waterline_distance %><br>
         <%= marker.number_field :waterline_distance %><br/>
     <% end %>
-    <br>
-    <br>
+  
     <%= f.submit %>
 
 <% end %>

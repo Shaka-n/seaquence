@@ -26,14 +26,16 @@
 	</style>
 </head>
 
+<%= link_to "create report", new_location_report_path(@location) %>
+
+
 <h1><%=@location.country%></h1>	
 	
-
+<% if @location.markers.length != 0 %>
 		<div class="location">
 
 			<div class="beach" id="beach1" style="
 
-				
 				clip-path: polygon(<%=@location.markers[0].waterline_distance%>% 100%, 0 0, 100% 0, 100% 100%);
 
 				"> </div>
@@ -85,3 +87,5 @@
 			clip-path: polygon(<%=@location.markers[9].waterline_distance%>% 100%, <%=@location.markers[8].waterline_distance%>% 0, 100% 0, 100% 100%);
 			">> </div>
 		</div>
+
+		<% end %>
