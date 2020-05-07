@@ -10,22 +10,30 @@ class ReportsController < ApplicationController
 
     def new 
         @report = Report.new 
-        @report.markers.build(waterline_distance: "Marker ")
-        @report.markers.build(waterline_distance: "Marker ")
-        @report.markers.build(waterline_distance: "Marker ")
-        @report.markers.build(waterline_distance: "Marker ")
-        @report.markers.build(waterline_distance: "Marker ")
-        @report.markers.build(waterline_distance: "Marker ")
-        @report.markers.build(waterline_distance: "Marker ")
-        @report.markers.build(waterline_distance: "Marker ")
-        @report.markers.build(waterline_distance: "Marker ")
-        @report.markers.build(waterline_distance: "Marker ")
+        @report.markers.build(waterline_distance: 0)
+        @report.markers.build(waterline_distance: 0)
+        @report.markers.build(waterline_distance: 0)
+        @report.markers.build(waterline_distance: 0)
+        @report.markers.build(waterline_distance: 0)
+        @report.markers.build(waterline_distance: 0)
+        @report.markers.build(waterline_distance: 0)
+        @report.markers.build(waterline_distance: 0)
+        @report.markers.build(waterline_distance: 0)
+        @report.markers.build(waterline_distance: 0)
     end 
 
     def create 
-        Report.create(reports_params)
+        Report.create(report_params)
 
-        redirect_to reports_path
+        markers_params[:markers_attributes].each do |m|
+
+            Marker.create(
+                report_id: @report.id, 
+                waterline_distance: m[1][:waterline_distance].to_i)
+                # location_id: @location.id
+        end
+
+        redirect_to report_path(@report.id)
     end
 
     def edit 
@@ -48,13 +56,12 @@ class ReportsController < ApplicationController
 
     private 
 
-    def reports_params 
-        params.require(:report).permit(:title,
-        :body, 
-        :user_id, 
-        :location_id,
-        markers_attributes: [:waterline_distance]
-        )
+    def report_params 
+        params.require(:report).permit(:title, :body)
+    end
+
+    def markers_params
+        params.require(:report).permit(markers_attributes: :waterline_distance)
     end
 
 end

@@ -1,6 +1,9 @@
 <%= form_for @location do |f| %> 
     <%= f.label :country %>
     <%= f.collection_select :country, Location.countries, :itself, :itself %>
+    
+    <%= f.label :name %>
+    <%= f.text_field :name %>
 
     <%= f.label :zipcode %>
     <%= f.text_field :zipcode %>
