@@ -26,7 +26,6 @@
 	color: #85b900;
 	background-color: currentColor;
 	border-left: solid 100px #b5bf00;
-	margin-bottom: -100px;
 	justify-content: right;
 	text-align: right;
 	float: right;
@@ -44,3 +43,36 @@
 
 
 
+#location_index_card{
+    width: fit-content;
+    height: auto;
+	padding: 20px 20px 20px 20px;
+    position: relative;
+    border-radius: .5rem;
+    background-color: #0736429a;
+    text-align: left;
+    text-shadow: 2px 2px #073642;
+    box-shadow: 3px 3px 8px #042a34bd;
+}
+#location_index_card:hover{
+    background-color: #5e990077;
+}
+#location_index_list{
+	margin-bottom: 8px;
+    font-size: 20px;
+    color: #ffffff;
+    text-decoration: none;
+}
+#location_card{
+    width: fit-content;
+    min-width: 400px;
+    height: auto;
+    position: relative;
+    float: center;
+    padding: 20px 50px 50px 50px;
+    border-radius: .5rem;
+    background-color: #0736429a;
+    color: #ffffffa8;
+    text-align: left;
+    box-shadow: 3px 3px 8px #042a34bd;
+}
