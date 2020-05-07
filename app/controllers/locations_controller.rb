@@ -58,7 +58,7 @@ class LocationsController < ApplicationController
     private 
 
     def location_params 
-        params.require(:location).permit(:country, :zipcode, :bio)
+        params.require(:location).permit(:country, :zipcode, :bio, :name)
     end
 
     def markers_params
