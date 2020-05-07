@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   resources :locations
   resources :markers, only: [:new, :create, :edit, :update]
   resources :users
-  resources :follows
+  resources :follows, only: [:new, :create, :destroy]
   resources :reports
 end

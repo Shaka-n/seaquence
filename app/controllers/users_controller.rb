@@ -28,6 +28,10 @@ class UsersController < ApplicationController
     def show
     end
 
+    def follow!(followed)
+        relationships.create!(:followed_id => followed.id)
+    end
+
     def destroy
         @user.destroy
         redirect_to users_path
