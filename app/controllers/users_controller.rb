@@ -13,7 +13,9 @@ class UsersController < ApplicationController
     end
 
     def create
-        @user.create(user_params)
+        @user = User.create(user_params)
+
+        redirect_to user_path(@user)
     end
 
     def edit
@@ -35,7 +37,7 @@ class UsersController < ApplicationController
 
     private
     def user_params
-        params.require(:user).permit(:first_name, :last_name, :title, :country, :bio, :profile_img, :search)
+        params.require(:user).permit(:username, :password, :first_name, :last_name, :title, :country, :bio, :profile_img, :search)
     end
 
     def find_user
