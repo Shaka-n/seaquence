@@ -65,4 +65,3 @@ class LocationsController < ApplicationController
         params.require(:location).permit(markers_attributes: :waterline_distance)
     end
 end
-

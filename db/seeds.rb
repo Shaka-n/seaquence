@@ -7,3 +7,4 @@ User.create(username: "usherpa", password: "password", email: "urgen.nyc@gmail.c
 20.times do
     User.create(username: Faker::Internet.username, password: "guest", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name , title: "enthusiast", country: Faker::Address.country_code, bio: Faker::GreekPhilosophers.quote, profile_img: Faker::Placeholdit.image)
 end
+

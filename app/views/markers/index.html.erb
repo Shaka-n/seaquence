@@ -1,0 +1,4 @@
+<h1>All Markers</h1>
+<% @markers.each do |marker| %>
+    <%= link_to marker.id location_path(marker.location) %>
+<% end %>
