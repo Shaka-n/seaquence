@@ -1,0 +1,4 @@
+
+<% @locations.map  do |location| %>
+<li><%= link_to location.country, location_path(location) %></li>
+<% end %>
