@@ -10,16 +10,16 @@ class ReportsController < ApplicationController
 
     def new 
         @report = Report.new 
-        @report.markers.build(waterline_distance: "Marker ")
-        @report.markers.build(waterline_distance: "Marker ")
-        @report.markers.build(waterline_distance: "Marker ")
-        @report.markers.build(waterline_distance: "Marker ")
-        @report.markers.build(waterline_distance: "Marker ")
-        @report.markers.build(waterline_distance: "Marker ")
-        @report.markers.build(waterline_distance: "Marker ")
-        @report.markers.build(waterline_distance: "Marker ")
-        @report.markers.build(waterline_distance: "Marker ")
-        @report.markers.build(waterline_distance: "Marker ")
+        @report.markers.build(waterline_distance: 0)
+        @report.markers.build(waterline_distance: 0)
+        @report.markers.build(waterline_distance: 0)
+        @report.markers.build(waterline_distance: 0)
+        @report.markers.build(waterline_distance: 0)
+        @report.markers.build(waterline_distance: 0)
+        @report.markers.build(waterline_distance: 0)
+        @report.markers.build(waterline_distance: 0)
+        @report.markers.build(waterline_distance: 0)
+        @report.markers.build(waterline_distance: 0)
     end 
 
     def create 
