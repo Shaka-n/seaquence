@@ -1,37 +1,87 @@
-<!DOCTYPE html>
-<html>
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="css/reset.css">
-	<link rel="stylesheet" type="text/css" href="style.css">
 	<style>
-
+		.location{
+			display: block;
+			margin:auto;
+			justify-content: center;
+			width: 60%;
+			height: 80vh;
+			background-color: #268bd2;
+			border: 10px;
+			border-style: solid;
+			align-items: right;
+		}
+		.beach{
+			width:50%;
+			height: 8vh;
+			position: relative;
+			color: #85b900;
+			background-color: currentColor;
+			border-left: solid 100px #b5bf00;
+			justify-content: right;
+			text-align: right;
+			float: right;
+		
+		}
 	</style>
-
 </head>
-	<body>
-		<div class="window">
+
+<h1><%=@location.country%></h1>	
+	
+
 		<div class="location">
 
 			<div class="beach" id="beach1" style="
 
-			clip-path: polygon(0 100%, 4% 0, 100% 0, 100% 100%);
+				
+				clip-path: polygon(<%=@location.markers[0].waterline_distance%>% 100%, 0 0, 100% 0, 100% 100%);
 
+				"> </div>
+
+			<div class="beach" id="beach2" style="
+
+				clip-path: polygon(<%=@location.markers[1].waterline_distance%>% 100%, <%=@location.markers[0].waterline_distance%>% 0, 100% 0, 100% 100%);
+			
+				"> </div>
+
+			<div class="beach" id="beach3" style="
+
+			clip-path: polygon(<%=@location.markers[2].waterline_distance%>% 100%, <%=@location.markers[1].waterline_distance%>% 0, 100% 0, 100% 100%);
 			"> </div>
+			
+			<div class="beach" id="beach4" style="
 
-		<div class="sea"> </div><div class="beach" id="beach2" style="
-
-			clip-path: polygon(4% 100%, 0 0, 100% 0, 100% 100%);
+			clip-path: polygon(<%=@location.markers[3].waterline_distance%>% 100%, <%=@location.markers[2].waterline_distance%>% 0, 100% 0, 100% 100%);
 			
 			"> </div>
+			
+			<div class="beach" id="beach5" style="
 
-		<div class="sea"> </div><div class="beach" id="beach3" style="
-
-			clip-path: polygon(3% 100%, 4% 0, 100% 0, 100% 100%);
+			clip-path: polygon(<%=@location.markers[4].waterline_distance%>% 100%, <%=@location.markers[3].waterline_distance%>% 0, 100% 0, 100% 100%);
 			"> </div>
-		<div class="sea"> </div><div id="beach4"> </div><div class="sea"> </div><div id="beach5"> </div><div class="sea"> </div><div id="beach6"> </div><div class="sea"> </div><div id="beach7"> </div><div class="sea"> </div><div id="beach8"> </div><div class="sea"> </div><div id="beach9"> </div><div class="sea"> </div><div id="beach10"> </div>
+			
+			<div class="beach" id="beach6" style="
+
+			clip-path: polygon(<%=@location.markers[5].waterline_distance%>% 100%, <%=@location.markers[4].waterline_distance%>% 0, 100% 0, 100% 100%);
+			">> </div>
+			
+			<div class="beach"id="beach7" style="
+
+			clip-path: polygon(<%=@location.markers[6].waterline_distance%>% 100%, <%=@location.markers[5].waterline_distance%>% 0, 100% 0, 100% 100%);
+			">> </div>
+			
+			<div class="beach"id="beach8" style="
+
+			clip-path: polygon(<%=@location.markers[7].waterline_distance%>% 100%, <%=@location.markers[6].waterline_distance%>% 0, 100% 0, 100% 100%);
+			">> </div>
+			
+			<div class="beach"id="beach9" style="
+
+			clip-path: polygon(<%=@location.markers[8].waterline_distance%>% 100%, <%=@location.markers[7].waterline_distance%>% 0, 100% 0, 100% 100%);
+			">> </div>
+			
+			<div class="beach"id="beach10" style="
+
+			clip-path: polygon(<%=@location.markers[9].waterline_distance%>% 100%, <%=@location.markers[8].waterline_distance%>% 0, 100% 0, 100% 100%);
+			">> </div>
 		</div>
-		</div>
-	</body>
-</html>

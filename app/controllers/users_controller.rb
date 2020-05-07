@@ -2,7 +2,10 @@ class UsersController < ApplicationController
     before_action :find_user, only: [:show, :update, :destroy]
 
     def index
-        @users = User.all
+        @users = User.search(params[:search])
+        if @users && @users.length == 0
+            @err = "No User Found."
+        end
     end
 
     def new
@@ -32,7 +35,7 @@ class UsersController < ApplicationController
 
     private
     def user_params
-        params.require(:user).permit(:first_name, :last_name, :title, :country, :bio, :profile_img)
+        params.require(:user).permit(:first_name, :last_name, :title, :country, :bio, :profile_img, :search)
     end
 
     def find_user

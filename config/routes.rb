@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  # root 'login#index'  
   resources :locations
   resources :markers, only: [:new, :create, :edit, :update]
   resources :users
   resources :follows
   resources :reports
 end
- 
