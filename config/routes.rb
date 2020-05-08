@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  # root 'login#index'  
+  root 'locations#index'  
   resources :markers, only: [:new, :create, :edit, :update]
   resources :users
   resources :follows
