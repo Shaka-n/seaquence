@@ -1,1 +1,95 @@
-<h1> Report </h1>
+<head>
+	<style>
+		.report{
+			display: block;
+			margin:auto;
+			justify-content: center;
+			width: 60%;
+			height: 80vh;
+			background-color: #268bd2;
+			border: 10px;
+			border-style: solid;
+			border-color: #073642;
+			align-items: right;
+		}
+		.beach{
+			width:50%;
+			height: 8vh;
+			position: relative;
+			color: #85b900;
+			background-color: currentColor;
+			border-left: solid 100px #b5bf00;
+			justify-content: right;
+			text-align: right;
+			float: right;
+		
+		}
+	</style>
+</head>
+
+
+<h1 style="color: #073642; text-align: center;"><%=@report.title%></h1>	
+<p style="color: #073642; text-align: center;"><%=@report.body%></p>	
+
+<% if @report.markers.length != 0 %>
+		<div class="report">
+
+			<div class="beach" id="beach1" style="
+
+				clip-path: polygon(<%=@report.markers[0].waterline_distance%>% 100%, 0 0, 100% 0, 100% 100%);
+
+				"> </div>
+
+			<div class="beach" id="beach2" style="
+
+				clip-path: polygon(<%=@report.markers[1].waterline_distance%>% 100%, <%=@report.markers[0].waterline_distance%>% 0, 100% 0, 100% 100%);
+			
+				"> </div>
+
+			<div class="beach" id="beach3" style="
+
+			clip-path: polygon(<%=@report.markers[2].waterline_distance%>% 100%, <%=@report.markers[1].waterline_distance%>% 0, 100% 0, 100% 100%);
+			"> </div>
+			
+			<div class="beach" id="beach4" style="
+
+			clip-path: polygon(<%=@report.markers[3].waterline_distance%>% 100%, <%=@report.markers[2].waterline_distance%>% 0, 100% 0, 100% 100%);
+			
+			"> </div>
+			
+			<div class="beach" id="beach5" style="
+
+			clip-path: polygon(<%=@report.markers[4].waterline_distance%>% 100%, <%=@report.markers[3].waterline_distance%>% 0, 100% 0, 100% 100%);
+			"> </div>
+			
+			<div class="beach" id="beach6" style="
+
+			clip-path: polygon(<%=@report.markers[5].waterline_distance%>% 100%, <%=@report.markers[4].waterline_distance%>% 0, 100% 0, 100% 100%);
+			">> </div>
+			
+			<div class="beach"id="beach7" style="
+
+			clip-path: polygon(<%=@report.markers[6].waterline_distance%>% 100%, <%=@report.markers[5].waterline_distance%>% 0, 100% 0, 100% 100%);
+			">> </div>
+			
+			<div class="beach"id="beach8" style="
+
+			clip-path: polygon(<%=@report.markers[7].waterline_distance%>% 100%, <%=@report.markers[6].waterline_distance%>% 0, 100% 0, 100% 100%);
+			">> </div>
+			
+			<div class="beach"id="beach9" style="
+
+			clip-path: polygon(<%=@report.markers[8].waterline_distance%>% 100%, <%=@report.markers[7].waterline_distance%>% 0, 100% 0, 100% 100%);
+			">> </div>
+			
+			<div class="beach"id="beach10" style="
+
+			clip-path: polygon(<%=@report.markers[9].waterline_distance%>% 100%, <%=@report.markers[8].waterline_distance%>% 0, 100% 0, 100% 100%);
+			">> </div>
+		</div>
+
+		<% end %>
+		
+		<div>
+			<%= link_to "Go Back", location_path(@report), id: "report_show_form_btn" %>
+		</div>

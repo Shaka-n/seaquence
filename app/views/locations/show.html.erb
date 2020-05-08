@@ -94,3 +94,11 @@
 		<div>
 			<%= link_to "Go Back", locations_path, id: "location_show_form_btn" %>
 		</div>
+
+
+		<h1> All Associated Reports</h1>
+		<ul>
+			<% @location.reports.each  do |report| %>
+				<li><%= link_to report.title, location_report_path(report) %></li>
+			<% end %>
+		</ul>
