@@ -9,6 +9,7 @@
 			background-color: #268bd2;
 			border: 10px;
 			border-style: solid;
+			border-color: #073642;
 			align-items: right;
 		}
 		.beach{
@@ -26,7 +27,7 @@
 	</style>
 </head>
 
-<h1 style="text-align: center;"><%=@location.country%></h1>	
+<h1 style="color: #073642; text-align: center;"><%=@location.country%></h1>	
 	
 
 		<div class="location">
@@ -86,3 +87,6 @@
 			">> </div>
 		</div>
 		
+		<div>
+			<%= link_to "Go Back", locations_path, id: "location_show_form_btn" %>
+		</div>

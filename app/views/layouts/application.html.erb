@@ -24,18 +24,21 @@
               <td align="center" class="h3_white">MENU:</td>
             </tr>
             <tr>
-              <td align="center"><a class="text_white" href="/locations/new">CREATE LOCATION</a></td>
+              <td align="center"><a class="nav_text_white" href="/locations/new">CREATE LOCATION</a></td>
             </tr>
             <tr>
-              <td align="center"><a class="text_white" href="/reports/new">CREATE REPORT</a></td>
+              <td align="center"><a class="nav_text_white" href="/reports/new">CREATE REPORT</a></td>
             </tr>
           </table>   
+        </div>
+        <div>
+          <%= link_to "ALL LOCATIONS", locations_path, id: "locations_form_btn" %>
         </div>
         <div id="search_form">
           <%= form_tag(users_path, method: :get) do %>
             <table align="left">
               <tr>
-                <td class="h2_white">Search User Index:</td>
+                <td class="h2_white">Search User:</td>
               </tr>
               <tr>
                 <td width="250"><%= text_field_tag(:search, params[:search], id: "form_box") %></td>

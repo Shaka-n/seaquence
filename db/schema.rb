@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2020_05_04_190630) do
 
   create_table "locations", force: :cascade do |t|
     t.string "country"
-    t.integer "zipcode"
+    t.string "zipcode"
     t.text "bio"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

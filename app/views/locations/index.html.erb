@@ -1,3 +1,5 @@
-    <% @locations.map  do |location| %>
-    <div id="location_index_card"><%= link_to location.country, location_path(location), id: "location_index_list" %></div>
-    <% end %>
+<% @locations.map do |location| %>
+    <div id="location_index_card">
+        <%= link_to "#{location.country}: #{location.zipcode}", location_path(location), id: "location_index_list" %>
+    </div>
+<% end %>
