@@ -1,24 +1,36 @@
-<%= form_for @user do |f|%>
-<%= f.label :username %>
-    <%=f.text_field :username%>
+<div id="session_card">
+    <%= form_for @user do |f|%>
+    <table>
+        <tr>
+            <td class="pad_5 profile_label"><%= f.label :username %></td>
+            <td class="pad_5 profile_label"><%=f.text_field :username%></td>
+        </tr>
+        <tr>
+            <td class="pad_5 profile_label"><%= f.label :password %></td>
+            <td class="pad_5 profile_label"><%=f.text_field :password%></td>
+        </tr>
+        <tr>
+            <td class="pad_5 profile_label"><%= f.label :email %></td>
+            <td class="pad_5 profile_label"><%=f.text_field :email%></td>
+        </tr>
+        <tr>
+            <td class="pad_5 profile_label"><%= f.label :first_name %></td>
+            <td class="pad_5 profile_label"><%=f.text_field :first_name%></td>
+        </tr>
+        <tr>
+            <td class="pad_5 profile_label"><%= f.label :last_name %></td>
+            <td class="pad_5 profile_label"><%=f.text_field :last_name%></td>
+        </tr>
+        <tr>
+            <td class="pad_5 profile_label"><%= f.label :title%></td>
+            <td class="pad_5 profile_label"><%=f.text_field :title%></td>
+        </tr>
+        <tr>
+            <td class="pad_5 profile_label"><%= f.label :bio %></td>
+            <td class="pad_5 profile_label"><%=f.text_area :bio%></td>
+        </tr>
+    </table>
+    <%= f.submit "Sign Up", id: "form_btn" %>
+<%end%>
 
-    <%= f.label :password %>
-    <%=f.text_field :password%>
-
-    <%= f.label :email %>
-    <%=f.text_field :email%>
-
-    <%= f.label :first_name %>
-    <%=f.text_field :first_name%>
-
-    <%= f.label :last_name %>
-    <%=f.text_field :last_name%>
-
-    <%= f.label :title%>
-    <%=f.text_field :title%>
-
-    <%= f.label :bio %>
-    <%=f.text_area :bio%>
-
-    <%= f.submit %>
-    <%end%>
+</div>

@@ -9,6 +9,7 @@
     <%= stylesheet_link_tag 'user', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'locations', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'reports', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'sessions', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -16,26 +17,27 @@
     <nav class="navbar">
       <div class="nav_container">
         <div id="logo">
-          <a href="/users"><%= image_tag("seaquence_logo.png", width: "340") %></a>
+          <a href="/"><%= image_tag("seaquence_logo.png", width: "340") %></a>
         </div>
         <div id="nav_menu">
           <table align="center">
-            <tr>
-              <td align="center" class="h3_white">MENU:</td>
-            </tr>
             <% if @current_user %>
             <tr>
-              <td> Hello <%= @current_user.first_name %></td>
+              <td align="center" class="text_white" style="padding-top: 20px;"> Hello <%= @current_user.first_name %></td>
             </tr>
-            <tr><td> <%= link_to 'Log Out', log_out_session_path, method: :delete %></td></tr>
+            <tr><td align="center"> <%= link_to 'Log Out', log_out_session_path, method: :delete,  class: "text_white" %></td></tr>
             <% else %>
             <tr>
-              <td align="center"> <a class="text_white" href="/sessions/login">LOGIN</a></td>
+              <td align="center" style="padding-top: 20px;"> <a class="text_white" href="/sessions/login">LOGIN</a></td>
             </tr>
             <tr>
               <td align="center"><a class="text_white" href="/users/new">SIGN UP</a></td>
             </tr>
             <%end %>
+            <tr>
+              <td align="center" class="h3_white">MENU:</td>
+            </tr>
+
             <tr>
               <td align="center"><a class="nav_text_white" href="/locations/new">CREATE LOCATION</a></td>
             </tr>
