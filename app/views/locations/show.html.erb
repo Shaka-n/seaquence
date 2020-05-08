@@ -27,7 +27,6 @@
 	</style>
 </head>
 
-<%= link_to "create report", new_location_report_path(@location) %>
 
 
 <h1 style="color: #073642; text-align: center;"><%=@location.country%></h1>	
@@ -92,13 +91,23 @@
 		<% end %>
 		
 		<div>
-			<%= link_to "Go Back", locations_path, id: "location_show_form_btn" %>
+			<table align="center">
+				<tr>
+					<td><%= link_to "Create Report", new_location_report_path(@location), id: "location_show_form_btn" %></td>
+					<td><%= link_to "Go Back", locations_path, id: "location_show_form_btn" %></td>
+				</tr>
+			</table>	
 		</div>
 
-
-		<h1> All Associated Reports</h1>
-		<ul>
-			<% @location.reports.each  do |report| %>
-				<li><%= link_to report.title, location_report_path(report) %></li>
-			<% end %>
-		</ul>
+		<div id="report_index_card">
+			<table width="600" align="center">
+				<tr>
+					<td align="center" style="font-size: 35px; color:white;">All Associated Reports</td>
+				</tr>
+				<% @location.reports.each  do |report| %>
+				<tr>
+					<td height="40" align="center" style="font-size: 15px; color:white;"><%= link_to report.title, location_report_path(report), class: "h2_white" %></td>
+				</tr>
+				<% end %>
+			</table>
+		</div>
