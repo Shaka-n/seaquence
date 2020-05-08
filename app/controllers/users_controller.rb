@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    skip_before_action :authenticate_user, only: [:new, :create, :index]
     before_action :find_user, only: [:show, :update, :destroy]
 
     def index
@@ -13,7 +14,15 @@ class UsersController < ApplicationController
     end
 
     def create
-        @user.create(user_params)
+        user = User.create(user_params)
+        # byebug
+        if user.valid?
+            session[:user_id] = user.id
+            redirect_to user_path(user)
+        else
+            flash[:errors] = user.errors.full_messages
+            redirect_to new_user_path 
+        end 
     end
 
     def edit
@@ -39,7 +48,7 @@ class UsersController < ApplicationController
 
     private
     def user_params
-        params.require(:user).permit(:first_name, :last_name, :title, :country, :bio, :profile_img, :search)
+        params.require(:user).permit(:password, :email, :username, :first_name, :last_name, :title, :country, :bio, :profile_img, :search)
     end
 
     def find_user

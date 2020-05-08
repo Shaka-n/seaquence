@@ -3,7 +3,8 @@ class User < ApplicationRecord
     has_many :follows
     has_many :locations, through: :follows
 
-
+    has_secure_password
+    
     def self.search(search)
         if search
             username = User.where(username: search)

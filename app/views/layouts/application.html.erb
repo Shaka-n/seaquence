@@ -23,6 +23,19 @@
             <tr>
               <td align="center" class="h3_white">MENU:</td>
             </tr>
+            <% if @current_user %>
+            <tr>
+              <td> Hello <%= @current_user.first_name %></td>
+            </tr>
+            <tr><td> <%= link_to 'Log Out', log_out_session_path, method: :delete %></td></tr>
+            <% else %>
+            <tr>
+              <td align="center"> <a class="text_white" href="/sessions/login">LOGIN</a></td>
+            </tr>
+            <tr>
+              <td align="center"><a class="text_white" href="/users/new">SIGN UP</a></td>
+            </tr>
+            <%end %>
             <tr>
               <td align="center"><a class="nav_text_white" href="/locations/new">CREATE LOCATION</a></td>
             </tr>

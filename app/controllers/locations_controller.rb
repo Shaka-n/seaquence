@@ -1,4 +1,5 @@
 class LocationsController < ApplicationController 
+    skip_before_action :authenticate_user, only: [:show, :index]
 
     def index 
         @locations = Location.order(:country)

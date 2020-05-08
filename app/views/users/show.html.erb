@@ -1,8 +1,9 @@
 <div id="profile_card">
 
     <h1 class="profile_label"><%= @user.first_name.upcase %> <%= @user.last_name.upcase %></h1>
-    
+    <% if @user.profile_img %>
     <%= image_tag @user.profile_img %>
+    <% end %>
     
     <h3><span class="profile_label">TITLE:</span> <%= @user.title %></h3>
     <h3><span class="profile_label">LOCATION:</span> <%= @user.country %></h3>
