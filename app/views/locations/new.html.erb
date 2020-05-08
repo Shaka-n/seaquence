@@ -1,7 +1,7 @@
 <div id="location_card">
     <h1 class="h1_white">CREATE A NEW LOCATION</h1>
     <%= form_for @location do |f| %> 
-    <table width="500">
+    <table width="400">
         <tr height="45">
             <td class="pad_5 profile_label"><%= f.label :country %></td>
             <td class="pad_5 profile_label" ><%= f.collection_select :country, Location.countries, :itself, :itself %></td> 

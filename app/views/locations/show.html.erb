@@ -9,6 +9,7 @@
 			background-color: #268bd2;
 			border: 10px;
 			border-style: solid;
+			border-color: #073642;
 			align-items: right;
 		}
 		.beach{
@@ -29,7 +30,7 @@
 <%= link_to "create report", new_location_report_path(@location) %>
 
 
-<h1><%=@location.country%></h1>	
+<h1 style="color: #073642; text-align: center;"><%=@location.country%></h1>	
 	
 <% if @location.markers.length != 0 %>
 		<div class="location">
@@ -89,3 +90,7 @@
 		</div>
 
 		<% end %>
+		
+		<div>
+			<%= link_to "Go Back", locations_path, id: "location_show_form_btn" %>
+		</div>

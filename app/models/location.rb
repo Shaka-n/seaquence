@@ -209,4 +209,10 @@ class Location < ApplicationRecord
             c 
         end
     end
+    def self.search(search)
+        if search
+            location = Location.where(country: search)
+        else
+        end 
+    end
 end
